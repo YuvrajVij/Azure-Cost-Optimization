@@ -34,16 +34,16 @@ This will provide a high-level idea by which we can optimize our Cost on the Azu
                                                         |
                                                         |
                                                         ▼
-                +----------------------+         +-----------------------+
-                |   Azure Blob Storage |<--------|   Data Retrieval Path   |
-                |  (Cool/Archive Tier)  |         +-----------------------+
-                +----------------------+         |
-                                                        |
-                                                        |
-                                                        ▼
-                                                +-----------------+
-                                                |   Billing API   |
-                                                +-----------------+
+                          +----------------------+         +-----------------------+
+                          |   Azure Blob Storage |<--------|   Data Retrieval Path  |
+                          |  (Cool/Archive Tier) |         +-----------------------+
+                          +----------------------+                          |
+                                                                            |
+                                                                            |
+                                                                            ▼
+                                                                    +-----------------+
+                                                                    |   Billing API   |
+                                                                    +-----------------+
 
 
 
@@ -172,8 +172,7 @@ In your Function App Application Settings, add:
 
 4.  DevOps pipeline Implementation
 
-
-1. Write Archival Python Script (archive_cosmos_to_blob.py)
+4.1.  Write Archival Python Script (archive_cosmos_to_blob.py)
 
 ```
 
@@ -230,7 +229,7 @@ for record in old_records:
         print(f"Error deleting {record_id}: {e}")
 
 ```
-2. Store in Repo (e.g., infra/archival/ directory)
+4.2. Store in Repo (e.g., infra/archival/ directory)
 Create the following folder structure in your repo:
 
 ```
@@ -241,7 +240,7 @@ Create the following folder structure in your repo:
 ```
 
 
-3. Azure DevOps Pipeline YAML
+4.3. Azure DevOps Pipeline YAML
 Add this pipeline to your repo under .azure-pipelines/archive-cosmos-blob.yml:
 
 
@@ -287,7 +286,7 @@ steps:
 
 ```
 
-4. Secure Your Secrets in Azure DevOps
+4.4. Secure Your Secrets in Azure DevOps
 Go to Project → Pipelines → Library and create a Variable Group named cosmos-archive-secrets.
 Add:
 
