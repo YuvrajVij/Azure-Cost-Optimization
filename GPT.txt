@@ -1,0 +1,35 @@
+Here is the URL for the Chat GPT conversation.
+
+https://chatgpt.com/share/680a7930-b354-8006-96de-f101911c45cb
+
+
+##Here is the Prompt given:
+
+I have been using Microsoft Azure as my Cloud platform. On it, we have our billing records been stored on Azure Cosmos DB. In that DB, we rarely access three months older records, but we still require them.
+
+Our database size is increasing and this is resulting in increase cost on our Azure subscription. 
+
+
+**I need some help to reduce my cost while still maintaining my data availability.**
+
+_________________________________________________________________________
+Here are some more system constraints.
+
+1. Record Size is about 300 KB.
+
+2. there are over 2 million records in database.
+
+3. Access Latency: When an old record is requested, it should still be served, with a response time in the order of seconds.
+
+
+________________________________________________________________________
+
+# Can you please help me and propose me a Solution which I can use to optimize overall cost for my subscription.
+
+Below are the pointers it should cover
+
+1. Simplicity & Ease of Implementation – The solution should be straightforward to deploy and maintain.
+
+2. No Data Loss & No Downtime – The transition should be seamless, without losing any records or requiring2 service downtime.
+
+3. No Changes to API Contracts – The existing read/write APIs for billing records must remain unchanged
